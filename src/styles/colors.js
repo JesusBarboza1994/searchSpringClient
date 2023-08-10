@@ -13,9 +13,31 @@ export const colors = {
    shallow: "rgba(97, 97, 97, 0.15)",
 
   },
-  background:"#F5F5F6",
-  backgroundLight:"#E1E2E1",
-  white: "#FFFFFF",
 
+  background : "#F5F5F6",
+  backgroundLight :"#E1E2E1",
+  white : "#FFFFFF",
+
+  black : {
+    dark : "#0B090A",
+    light : "#363636",
+    medium : "#161A1D",
+  },
+
+  red : {
+    dark : "#660708",
+    medium : "#A4161A",
+    light : "#BA181B",
+    highlight : "#E5383B",
+  },
+
+  gray : {
+    medium : "#B1A7A6",
+    light : "#D3D3D3",
+    highlight : "#F5F3F4",
+  },
+  
+
+  white_light: "#FFFFFF",
 
 };
