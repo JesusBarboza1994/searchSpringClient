@@ -30,7 +30,7 @@ export const DivImg = styled.div`
 `
 export const DivCode = styled.div`
   width:100%;
-  background: ${colors.pink.medium};
+  background: ${colors.red.light};
   padding: 9px 36px;
   display:flex;
   align-items:center;
@@ -41,7 +41,7 @@ export const DivCode = styled.div`
 `
 export const DivDescription = styled.div`
   width:100%;
-  background: ${colors.pink.medium};
+  background: ${colors.red.light};
   padding: 8px 8px;
   display:flex;
   align-items:center;
