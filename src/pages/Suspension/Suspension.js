@@ -10,7 +10,6 @@ export default function Suspension(){
     getBrands().then(response=>{
       setBrands(response)
     }).catch(error => { console.log(error) })
-
   }, [])
   
   return(

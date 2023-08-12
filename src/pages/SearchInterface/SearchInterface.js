@@ -4,14 +4,17 @@ import { CodeContainer, Wrapper } from "./styles";
 import { getCodes } from "../../services/codes-service";
 import CodeCard from "../../components/CodeCard/CodeCard";
 
-export default function SearchInterface(){
-  const {brand, codes, setCodes} = useAuth()
+export default function SearchInterface() {
+  const { brand, codes, setCodes } = useAuth();
+  console.log("aquin entre");
   useEffect(() => {
-    getCodes(brand).then(response =>{
-      setCodes(response)
-    }).catch(error =>console.log(error))
-    }, [])
-  return(
+    getCodes(brand)
+      .then((response) => {
+        setCodes(response);
+      })
+      .catch((error) => console.log(error));
+  }, []);
+  return (
     <Wrapper>
       <aside>
         <p>Marca</p>
@@ -21,12 +24,13 @@ export default function SearchInterface(){
         <p>Versión</p>
       </aside>
       <CodeContainer>
-        {
-        codes && codes.codes.map(code =>{
-          return <CodeCard code={code} key={code.osis_code}/>
-        })
-        }
+        {codes &&
+          codes.codes.map((code) =>
+            code.cars.map((car, i) => (
+              <CodeCard code={code} key={`${code.osis_code}+${i}`} car={car} />
+            ))
+          )}
       </CodeContainer>
     </Wrapper>
-  )
+  );
 }

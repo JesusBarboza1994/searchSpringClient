@@ -14,6 +14,7 @@ export const Wrapper = styled.div`
 export const CodeContainer = styled.div`
   display:flex;
   flex-wrap:wrap;
+  justify-content:space-between;
   gap:24px;
   padding: 24px;
 `
