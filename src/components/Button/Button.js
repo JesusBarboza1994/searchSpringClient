@@ -1,11 +1,9 @@
-import { StyledLink, Wrapper } from "./styles";
+import { Wrapper } from "./styles";
 
-export default function Button({text, url}){
+export default function Button({text, textColor}){
   return(
-    <StyledLink to={url}>
-      <Wrapper>
-        <p>{text}</p>
+      <Wrapper style={{color: textColor}}>
+          <p>{text}</p>
       </Wrapper>
-    </StyledLink>
   )
 }
