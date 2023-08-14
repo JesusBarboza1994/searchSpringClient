@@ -17,7 +17,8 @@ function App() {
         <Route path="/suspension" element={<Suspension/>} />
         <Route path="/puertas" element={<Puertas/>} />
         <Route path="/search_interface" element={<SearchInterface/>}/>
-      </Routes>
+      </Routes> 
+      
     </Wrapper>
     )
 }
