@@ -6,7 +6,7 @@ import styled from "@emotion/styled";
 import SearchInterface from "./pages/SearchInterface/SearchInterface";
 function App() {
   const Wrapper = styled.div`
-    max-width: 1200px;
+    // max-width: 1200px;
     margin: 0 auto;
     height:100vh;
   `

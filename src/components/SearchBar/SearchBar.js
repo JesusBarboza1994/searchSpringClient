@@ -4,6 +4,7 @@ import {RiSearchLine} from "react-icons/ri"
 import { IoIosArrowBack } from "react-icons/io"
 import { useAuth } from "../../context/auth-context";
 import { getBrands } from "../../services/brand-service";
+import { colors } from "../../styles";
 
 export default function SearchBar(){
   const [search, setSearch] = useState(null)
@@ -15,10 +16,10 @@ export default function SearchBar(){
   },[search])
   return(
     <SearchDiv>
-      {search ==="" ? <RiSearchLine style={{color: "lightgray", fontSize:"24"}}/> : 
-        <IoIosArrowBack style={{color: `lightgray`, fontSize:"24"}}/>
+      <StyledInput type="text" value={search} onChange={(e)=>setSearch(e.target.value)}/>
+      {search ==="" ? <RiSearchLine style={{color: colors.black.light, fontSize:"24"}}/> : 
+        <IoIosArrowBack style={{color: colors.black.light, fontSize:"24"}}/>
       }
-      <StyledInput type="text" value={search} onChange={(e)=>setSearch(e.target.value)} placeholder={"Search"}/>
     </SearchDiv>
   )
 }
