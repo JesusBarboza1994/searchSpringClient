@@ -9,9 +9,11 @@ display:flex;
 align-items:center;
 justify-content:center;
 padding: 16px 32px;
+cursor:pointer;
 p{
   font-size:24px;
   font-weight: 700;
+  color:white;
 }
 
 `
