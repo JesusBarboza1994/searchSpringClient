@@ -1,8 +1,8 @@
 import styled from "@emotion/styled";
 import { Card } from "./styles";
 
-
-export function CardLogo({img,name}){
+export function LogoCard({img,name}){
+    
     return (
         <Card>
             <img src={img}  />

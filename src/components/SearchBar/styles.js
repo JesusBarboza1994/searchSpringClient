@@ -1,26 +1,31 @@
 import styled from "@emotion/styled"
+import { colors } from "../../styles"
 
 export const SearchDiv = styled.div`
   display:flex;
   align-items:center;
+  // height:40px;
   gap:8px;
   background:white;
-  padding:4px;
-  width: 300px;
-  padding-left:10px;
-  border-radius:6px;
-  // outline: 1px solid black;
+  padding:2px;
+  width: 70%;
+  padding-right:10px;
+
+  border-radius:16px;
   &:focus-within{
-    outline: 2px solid black;
+    outline: 1px solid ${colors.black.dark};
   }
 `
 export const StyledInput = styled.input`
+  border-radius: 18px 0px 0px 18px;
   border:none;
-  background: white;
+  background: ${colors.black.dark};
+  color:white;
+  padding:8px 10px;
+  padding-left:20px; 
   width:100%;
   &:focus{
-    outline: none;
-    
+    outline: none; 
   }
   font-size:20px;
   

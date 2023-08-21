@@ -13,8 +13,8 @@ export default function BrandCard({brand}){
     <Wrapper onClick={handleBrand}>
       <div>
         <img src={`https://drive.google.com/uc?export=view&id=${brand.img_url}`} alt="sin imagen"/>
+        <h2>{brand.name}</h2>
       </div>
-      <h2>{brand.name}</h2>
     </Wrapper>
     )
 }

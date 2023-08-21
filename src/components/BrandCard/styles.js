@@ -1,25 +1,31 @@
 import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
-  width:200px;
-  height: 250px;
+  width:240px;
+  height: 161px;
   border-radius: 12px;
-  border: 2px solid gray;
+  border: 3px solid #363644;
   background:white;
-  padding: 20px 20px;
-  box-shadow: 0px 10px 40px rgba(41, 40, 40, 0.03);
+  padding: 30px 30px;
+  box-shadow: 0px 8px 4px 0px #A4161A;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content:space-between;
   &:hover{
     scale:1.05;
   }
   div{
     height:100%;
+    width:100%;
     display:flex;
     align-items:center;
     jsutify-content:center;
+    flex-direction: column;
+  }
+  img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;  
   }
 `
 
