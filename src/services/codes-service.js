@@ -1,12 +1,13 @@
 import apiFetch from "./api-fetch"
 
-export async function getCodes(brand, model, pos, year, vers ){
+export async function getCodes({brand, model, position, startYear, endYear, version} ){
   const searchUrls = []
   if(brand) searchUrls.push(`brand=${brand}`)
   if(model) searchUrls.push(`model=${model}`)
-  if(pos) searchUrls.push(`position=${pos}`)
-  if(year) searchUrls.push(`year=${year}`)
-  if(vers) searchUrls.push(`version=${vers}`)
+  if(position) searchUrls.push(`position=${position}`)
+  if(startYear) searchUrls.push(`start_year=${startYear}`)
+  if(endYear) searchUrls.push(`end_year=${endYear}`)
+  if(version) searchUrls.push(`version=${version}`)
   const url = 'codes?' + searchUrls.join('&&')
   const codes =  await apiFetch(url)
   console.log("CODES",codes)

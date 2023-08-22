@@ -4,9 +4,9 @@ import { Wrapper } from "./styles";
 
 export default function BrandCard({brand}){
   const nav = useNavigate()
-  const {setBrand} = useAuth()
+  const {filters, setFilters} = useAuth()
   function handleBrand(){
-    setBrand(brand.name)
+    setFilters({...filters, brand: brand.name})
     nav("/search_interface")
   }
   return(
