@@ -14,3 +14,11 @@ export async function getCodes({brand, model, position, startYear, endYear, vers
   return codes
   
 }
+
+export async function getCode(id){
+  const url = `codes/${id}` 
+  const code =  await apiFetch(url)
+  console.log("SPRING",code)
+  return code
+  
+}

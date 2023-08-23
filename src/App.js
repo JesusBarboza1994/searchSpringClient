@@ -4,6 +4,7 @@ import Suspension from "./pages/Suspension";
 import Puertas from "./pages/Puertas/Puertas";
 import styled from "@emotion/styled";
 import SearchInterface from "./pages/SearchInterface/SearchInterface";
+import SpringView from "./pages/SpringView";
 function App() {
   const Wrapper = styled.div`
     // max-width: 1200px;
@@ -16,7 +17,8 @@ function App() {
         <Route path="/" element={<Home/>} />
         <Route path="/suspension" element={<Suspension/>} />
         <Route path="/puertas" element={<Puertas/>} />
-        <Route path="/search_interface" element={<SearchInterface/>}/>
+        <Route path="/codes" element={<SearchInterface/>}/>
+        <Route path="/codes/:id" element={<SpringView/>}/>
       </Routes> 
       
     </Wrapper>

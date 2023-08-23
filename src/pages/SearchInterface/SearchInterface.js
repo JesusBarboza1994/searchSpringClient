@@ -120,7 +120,7 @@ export default function SearchInterface() {
         {codes &&
           codes.codes.map((code) =>
             code.cars.map((car, i) => (
-              <CodeCard code={code} key={`${code.osis_code}+${i}`} car={car} />
+              <CodeCard code={code} key={`${code.osis_code}+${i}`} car={car} id={code.id}/>
             ))
           )}
       </CodeContainer>
