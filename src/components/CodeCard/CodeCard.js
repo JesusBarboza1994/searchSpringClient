@@ -3,14 +3,11 @@ import { useAuth } from "../../context/auth-context";
 import { Wrapper, DivImg, DivCode, DivDescription } from "./styles";
 
 export default function CodeCard({code, car, id}){
+  const { setCar} = useAuth()
   const nav = useNavigate()
-  // const {setBrand} = useAuth()
-  // function handleBrand(){
-  //   setBrand(brand.name)
-  //   nav("/search_interface")
-  // }
   const handleClick = () =>{
-    //lksdvnsdklfjsdjfklsdjf
+    setCar(car)
+    console.log("CARRO", car)
     nav(`${id}`)
   }
   let position = "";
