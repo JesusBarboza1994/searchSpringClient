@@ -1,14 +1,16 @@
 import { useEffect, useState } from "react";
 import { useAuth } from "../../context/auth-context";
-import { Aside, CodeContainer, FilterContainer, FilterTitle, Wrapper } from "./styles";
+import { Aside, CleanFilter, CodeContainer, FilterContainer, FilterOptionsTitle, FilterTitle, Wrapper, CheckBoxGroup } from "./styles";
 import { getCodes } from "../../services/codes-service";
 import CodeCard from "../../components/CodeCard/CodeCard";
 import CheckBox from "../../components/CheckBox/CheckBox";
 import Filter from "../../components/Filter/Filter";
 import Input from "../../components/Input";
+import {FaFilter} from "react-icons/fa"
+import FilterSearch from "../../components/FilterSearch/SearchBar";
 
 export default function SearchInterface() {
-  const { codes, setCodes, filters, showFilter, setShowFilter } = useAuth();
+  const { codes, setCodes, filters, setFilters, showFilter, setShowFilter } = useAuth();
   const [visibleBrands, setvisibleBrands] = useState([])
   const [visibleModels, setVisibleModels] = useState([])
   const [versions, setVersions] = useState([])
@@ -32,9 +34,14 @@ export default function SearchInterface() {
     setVisibleModels(!showFilter.model ? codes.models : codes.models.slice(0, 5))
     setShowFilter({ ...showFilter, model: !showFilter.model })
   }
+  
   return (
     <Wrapper>
       <Aside>
+        {
+          Object.values(filters).find(filter =>filter !== null) &&
+          <FilterOptionsTitle><FaFilter/> Filtros seleccionados</FilterOptionsTitle>
+        }
       <FilterContainer>
         {Object.entries(filters).map(([clave, valor]) => {
           if(filters.startYear && filters.endYear && (clave === "startYear" || clave === "endYear" )) return 
@@ -49,51 +56,70 @@ export default function SearchInterface() {
           <Filter key={"both"} text={`${filters.startYear}<= AÑO <= ${filters.endYear}`} year={"both"}/>
         }
       </FilterContainer>
-
+        { Object.values(filters).find(filter =>filter !== null) &&
+          <CleanFilter onClick={()=>{setFilters({
+            brand: null,
+            model: null,
+            pos: null,
+            startYear: null,
+            endYear: null,
+            vers: null
+          })}}>Borrar los filtros</CleanFilter>
+        }
         {
-          !filters.brand &&
+          (!filters.brand ) &&
           <>
             <FilterTitle>MARCA</FilterTitle>
-            {visibleBrands?.map((brand, index) => (
-              <CheckBox key={brand + index} text={brand} clave={"brand"}/>
-            ))}
-            {
-              showFilter.brand ?
-              <p onClick={showAllBrands}>Ver menos</p> :
-              <p onClick={showAllBrands}>Ver más</p>
-            }
+            <FilterSearch setVisibleValues={setvisibleBrands} clave={"brands"}/>
+            <CheckBoxGroup>
+              {visibleBrands?.map((brand, index) => (
+                <CheckBox key={brand + index} text={brand} clave={"brand"}/>
+              ))}
+              {
+                showFilter.brand ?
+                <p onClick={showAllBrands}>Ver menos</p> :
+                <p onClick={showAllBrands}>Ver más</p>
+              }
+            </CheckBoxGroup>
           </>
         }
         {
-          !filters.model &&
+          (!filters.model && filters.brand) &&
           <>
             <FilterTitle>MODELO</FilterTitle>
-            {visibleModels?.map((model, index) => (
-              <CheckBox key={model + index} text={model} clave={"model"}/>
-            ))}
-            {
-              showFilter.model ?
-              <p onClick={showAllModels}>Ver menos</p> :
-              <p onClick={showAllModels}>Ver más</p>
-            }
+            <FilterSearch setVisibleValues={setVisibleModels} clave={"models"}/>
+            <CheckBoxGroup>
+              {visibleModels?.map((model, index) => (
+                <CheckBox key={model + index} text={model} clave={"model"}/>
+              ))}
+              {
+                showFilter.model ?
+                <p onClick={showAllModels}>Ver menos</p> :
+                <p onClick={showAllModels}>Ver más</p>
+              }
+            </CheckBoxGroup>
           </>
         }
         {
           !filters.version &&
           <>
             <FilterTitle>VERSION</FilterTitle>
-            {versions.map((version, index) => (
-              <CheckBox key={version + index} text={version} clave={"version"}/>
-            ))}
+            <CheckBoxGroup>
+              {versions.map((version, index) => (
+                <CheckBox key={version + index} text={version} clave={"version"}/>
+              ))}
+            </CheckBoxGroup>
           </>
         }
         {
           !filters.position &&
           <>
             <FilterTitle>POSICIÓN</FilterTitle>
-            {positions.map((position, index) => (
-              <CheckBox key={position + index} text={position} clave={"position"}/>
-            ))}
+            <CheckBoxGroup>
+              {positions.map((position, index) => (
+                <CheckBox key={position + index} text={position} clave={"position"}/>
+              ))}
+            </CheckBoxGroup>
           </>
         }
         {
