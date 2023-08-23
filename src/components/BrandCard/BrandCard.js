@@ -7,7 +7,7 @@ export default function BrandCard({brand}){
   const {filters, setFilters} = useAuth()
   function handleBrand(){
     setFilters({...filters, brand: brand.name})
-    nav("/search_interface")
+    nav("/codes")
   }
   return(
     <Wrapper onClick={handleBrand}>
