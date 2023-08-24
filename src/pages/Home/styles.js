@@ -29,12 +29,3 @@ export const ButtonContainer = styled.div`
   gap: 24px;
   padding-top:100px;
 `
-export const LogoContainer = styled.div`
-  background: #BA181B;
-  height: 130px;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  
-`

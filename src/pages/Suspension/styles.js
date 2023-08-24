@@ -15,21 +15,8 @@ export const BrandCardContainer = styled.div`
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   gap:40px;
 
+`
 
-`
-export const TitleContainer = styled.div`
-  background: #BA181B;
-  height: 130px;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  h1{
-    font-size:40px;
-    color: white;
-  }
-  
-`
 export const MainContainer = styled.div`
   display:flex;
   flex-direction:column;

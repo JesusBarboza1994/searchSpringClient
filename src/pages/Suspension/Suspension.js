@@ -16,9 +16,7 @@ export default function Suspension(){
   
   return(
     <Wrapper>
-      <TitleContainer>
-        <h1>SUSPENSIÓN</h1>
-      </TitleContainer>
+    
       <MainContainer>
         <div className="search">
           <p>Elije tu marca</p>
