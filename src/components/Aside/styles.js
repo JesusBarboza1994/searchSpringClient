@@ -1,11 +1,23 @@
 import styled from "@emotion/styled";
 import { colors, typography } from "../../styles";
 
+export const Wrapper = styled.aside`
+  background: ${colors.white};
+  color: ${colors.black.light};
+  display:flex;
+  flex-direction:column;
+  padding: 12px 32px;
+  width:300px;
+  height:100%;
+  position:sticky;
+  margin-top:220px;
+`
 export const FilterContainer = styled.div`
   width:100%;
   display: flex;
   flex-wrap:wrap;
   gap:8px;
+  position:sticky;
   margin-bottom:8px;
   margin-left:12px;
 `
@@ -20,14 +32,6 @@ export const FilterTitle = styled.p`
   margin-top:12px;
 `
 
-export const Wrapper = styled.aside`
-  background: ${colors.white};
-  color: ${colors.black.light};
-  display:flex;
-  flex-direction:column;
-  padding: 12px 32px;
-  width:300px;
-`
 export const CleanFilter = styled.p`
   ${typography.head.xxs};   
   text-decoration: underline;

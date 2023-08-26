@@ -8,20 +8,26 @@ export const Wrapper = styled.div`
   p{
     color: white;
   }
-  
+  @media(max-width:500px){
+    padding: 100px 24px 60px 24px;
+  }
 `
 export const BrandCardContainer = styled.div`
   display:grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap:40px;
+  grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+  row-gap:32px;
+  justify-items:center;
 
 `
 
 export const MainContainer = styled.div`
   display:flex;
   flex-direction:column;
-  padding: 42px 185px;
+  margin:auto;
+  max-width:1400px;
+  padding: 42px auto;
   gap:84px;
+  margin-top:140px;
   .search{
     display:flex;
     align-items:center;
@@ -32,5 +38,13 @@ export const MainContainer = styled.div`
     ${typography.text["xl"]}
     font-weight: 700;
     // width: 20%;
+  }
+  @media(max-width:800px){
+    gap:40px;
+    .search{
+      flex-direction:column;
+      justify-content: center;
+      margin: auto;
+    }
   }
 `

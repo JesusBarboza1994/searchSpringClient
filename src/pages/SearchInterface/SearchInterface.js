@@ -1,13 +1,13 @@
 import { useEffect } from "react";
 import { useAuth } from "../../context/auth-context";
-import { CodeContainer, Main, Wrapper  } from "./styles";
+import { CodeContainer, Main, SearchText, Wrapper  } from "./styles";
 import { getCodes } from "../../services/codes-service";
 import CodeCard from "../../components/CodeCard/CodeCard";
 import Aside from "../../components/Aside/Aside";
 import Pagination from "../../components/Pagination/Pagination";
 
 export default function SearchInterface() {
-  const { codes, setTotalPages, setCodes, filters, setCurrentPage, setVersions,setPositions,setvisibleBrands, setVisibleModels, currentPage } = useAuth();
+  const { codes, setTotalPages, setCodes, filters, setCurrentPage, setVersions,setPositions,setvisibleBrands, setVisibleModels, currentPage, totalPages } = useAuth();
 
   useEffect(() => {
     getCodes({...filters, currentPage})
@@ -39,6 +39,7 @@ export default function SearchInterface() {
     <Wrapper>
       <Aside/>
       <Main>
+        {/* <SearchText>Resultados encontrados:{totalPages} </SearchText> */}
         <CodeContainer>
           {codes &&
             codes.codes.map((code) =>
