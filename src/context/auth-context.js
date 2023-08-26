@@ -6,6 +6,12 @@ function AuthProvider({ children }) {
   const [brands, setBrands] = useState(null)
   const [car, setCar] = useState(null)
   const [codes, setCodes] = useState(null)
+  const [visibleBrands, setvisibleBrands] = useState([])
+  const [visibleModels, setVisibleModels] = useState([])
+  const [versions, setVersions] = useState([])
+  const [currentPage, setCurrentPage] = useState(1)
+  const [totalPages, setTotalPages] = useState(null)
+  const [positions, setPositions] = useState([])
   const [filters, setFilters] = useState({
     brand: null,
     model: null,
@@ -28,6 +34,18 @@ function AuthProvider({ children }) {
        codes,
        showFilter,
        car,
+       visibleModels,
+       versions,
+       totalPages,
+       currentPage,
+       setCurrentPage,
+       setTotalPages,
+       setVersions,
+       positions,
+       setPositions,
+       visibleBrands,
+       setvisibleBrands,
+       setVisibleModels,
        setCar,
        setShowFilter,
        filters,
