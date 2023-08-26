@@ -10,7 +10,7 @@ export const Wrapper = styled.aside`
   width:300px;
   height:100%;
   position:sticky;
-  margin-top:220px;
+  margin-top:160px;
 `
 export const FilterContainer = styled.div`
   width:100%;
@@ -43,4 +43,43 @@ export const CheckBoxGroup = styled.div`
   gap: 2px;
   margin-top:12px;
   margin-bottom:12px;
+`
+export const Switch = styled.div`
+  display: flex;
+  align-items:center;
+  width: 50px;
+  background:${colors.gray.light};
+  height:30px;
+  border-radius:15px;
+  position:relative;
+  padding-left:4px;
+`
+export const SwitchSide = styled.div`
+  border-radius:50%;
+  height:22px;
+  position:absolute;
+  left: ${props => props.showYear ? "4px" : "24px"};
+  width:22px;
+  background:${colors.black.light};
+`
+export const YearSelectionDiv = styled.div`
+  display:grid;
+  margin-top:12px;
+  grid-template-columns: 60px 1fr 60px;
+  justify-items:center;
+  margin-bottom:12px;
+  p{
+    font-size:14px;
+    font-weight:600;
+    line-height:18px;
+    text-align:center;
+  }
+`
+export const InputDiv = styled.div`
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  p{
+    font-size:50px;
+  }
 `

@@ -14,8 +14,8 @@ function generateNumberArray(maxNumber, minNumber = 1) {
   return Array.from({ length: maxNumber - minNumber + 1 }, (_, index) => (index + minNumber));
 }
 export default function Pagination(){
-  const { totalPages, setCurrentPage, currentPage }=useAuth()
-  const [numberOfPages, setNumberOfPages] = useState(10)
+  const { totalPages, setCurrentPage, currentPage, filters }=useAuth()
+  const numberOfPages = 10
   const [components, setComponents] = useState([])
   useEffect(() => {
     if(+totalPages > +numberOfPages){
@@ -25,7 +25,7 @@ export default function Pagination(){
     }
     
     
-  }, [])
+  }, [filters, totalPages])
   
   const nextPage = ()=>{
     setCurrentPage(currentPage+1)

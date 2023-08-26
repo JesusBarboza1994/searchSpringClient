@@ -1,14 +1,21 @@
 import { useAuth } from "../../context/auth-context";
 import Filter from "../Filter/Filter";
-import { CheckBoxGroup, CleanFilter, FilterContainer, FilterOptionsTitle, FilterTitle, Wrapper } from "./styles";
+import { CheckBoxGroup, CleanFilter, FilterContainer, FilterOptionsTitle, FilterTitle, InputDiv, Switch, SwitchSide, Wrapper, YearSelectionDiv } from "./styles";
 import {FaFilter} from "react-icons/fa"
 import FilterSearch from "../FilterSearch/SearchBar";
 import CheckBox from "../CheckBox/CheckBox";
 import Input from "../Input";
+import { MdArrowForwardIos} from "react-icons/md"
+import { useState } from "react";
+import { colors } from "../../styles";
 
 export default function Aside(){
   const { codes, versions, positions, filters, setFilters, showFilter, setShowFilter, visibleBrands,visibleModels,setvisibleBrands, setVisibleModels } = useAuth();
-  
+  const [rangeYear, setRangeYear] = useState({
+    rangeInit:null,
+    rangeEnd:null
+  })
+  const [showYear, setShowYear] = useState(true)
   const showAllBrands = () => {
     setvisibleBrands(!showFilter.brand ? codes.brands : codes.brands.slice(0, 5))
     setShowFilter({ ...showFilter, brand: !showFilter.brand })
@@ -16,6 +23,9 @@ export default function Aside(){
   const showAllModels = () => {
     setVisibleModels(!showFilter.model ? codes.models : codes.models.slice(0, 5))
     setShowFilter({ ...showFilter, model: !showFilter.model })
+  }
+  const handleRangeYear = () =>{
+    setFilters({...filters, startYear:rangeYear.rangeInit, endYear:rangeYear.rangeEnd})
   }
   return(
     <Wrapper>
@@ -104,22 +114,30 @@ export default function Aside(){
       </>
     }
     {
-      (!filters.startYear || !filters.endYear) &&
-      <FilterTitle>AÑO</FilterTitle>
+      (!filters.startYear && !filters.endYear) &&
+      <>
+        <FilterTitle>AÑO</FilterTitle>
+        <YearSelectionDiv showYear={showYear}>
+          <p style={{color:`${showYear ? colors.black.dark: colors.gray.light}`}}>AÑO DEL VEHÍCULO</p>
+          <Switch onClick={()=>setShowYear(!showYear)}>
+            <SwitchSide showYear={showYear}/>
+          </Switch>
+          <p style={{color:`${!showYear ? colors.black.dark: colors.gray.light}`}}>RANGO DE AÑOS</p>
+        </YearSelectionDiv>
+      </>
     }
-    {(filters.startYear && !filters.endYear) ?
-    <div>
-      {filters.startYear} - <Input type="number" year={"endYear"}/>
-    </div> :
-    (filters.endYear && !filters.startYear) ?
-    <div>
-      <Input type="number" year={"startYear"}/> - {filters.endYear}
-    </div> :
-    (!filters.startYear && !filters.endYear) ?
-    <div>
-      <Input type="number" year={"startYear"}/> - <Input type="number" year={"endYear"}/>
-    </div> :
-    null
+    {
+      (!filters.startYear && showYear) &&
+      <Input placeholder="2000" year={"startYear"} typeYear={"year"} />
+    }
+    {
+      ((!filters.startYear || !filters.endYear) && !showYear) &&
+      <InputDiv>
+        <Input placeholder="2000" year={"startYear"} value={rangeYear.rangeInit} onChange={(e)=>setRangeYear({...rangeYear, rangeInit: (e.target.value)})}/>
+        <p>-</p>
+        <Input placeholder="2099" year={"endYear"} value={rangeYear.rangeEnd} onChange={(e)=>setRangeYear({...rangeYear, rangeEnd: (e.target.value)})}/>
+        <MdArrowForwardIos style={{fontSize:"24px", cursor:"pointer"}} onClick={handleRangeYear} />
+      </InputDiv>
     }
     
   </Wrapper>

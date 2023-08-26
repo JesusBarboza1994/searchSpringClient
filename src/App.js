@@ -14,14 +14,14 @@ const Wrapper = styled.div`
 `
 const TitleContainer = styled.div`
 background: ${colors.red.light};
-height: 160px;
+height: 140px;
 width: 100%;
 display: flex;
 align-items: center;
 justify-content: center;
 position: absolute;
 width:100%;
-top: 55px;
+top: 40px;
 z-index:1;
 h1{
   font-size:40px;

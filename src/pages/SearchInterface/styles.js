@@ -39,7 +39,7 @@ export const Main = styled.div`
   background:${colors.black.medium};
   padding-left:48px;
   flex-direction:column;
-  padding-top:220px;
+  padding-top:180px;
   justify-content:flex-start;  
   height:100%;
   
