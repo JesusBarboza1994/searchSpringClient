@@ -6,11 +6,13 @@ export const Wrapper = styled.div`
   gap: 16px;
   align-items:center;
   justify-content:center;
+  margin: 12px auto;
 `
 
 export const PageBox = styled.div`
   height: 40px;
   width: 40px;
+  cursor: pointer;
   background: ${(props)=> props.current ? colors.red.highlight :  colors.gray.light};
   color: ${(props) => props.current ? colors.white : colors.black.dark};
   font-weight: 600;
