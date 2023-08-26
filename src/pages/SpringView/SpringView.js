@@ -6,11 +6,13 @@ import { useAuth } from "../../context/auth-context";
 import {BsWhatsapp} from "react-icons/bs"
 import { colors } from "../../styles";
 import SpringDimensions from "../../components/SpringDimensions/SpringDimensions";
+import { DivInput, StyledInput } from "../../components/SpringDimensions/styles";
 
-export default function SpringView(){
+export default function SpringView(title,text){
   const { id } = useParams();
-  const [spring, setSpring] = useState(null)
+  // const [spring, setSpring] = useState(null)
   const {car} = useAuth();
+  const {spring, setSpring} = useAuth();
 
   useEffect(()=>{
     getCode(id)
@@ -36,18 +38,21 @@ export default function SpringView(){
           <p>{spring.code.position}</p>
         </DivModel>
         <ButtonWsp>
-          <BsWhatsapp style={{color:colors.white,fontSize:30}}/>
+          <BsWhatsapp style={{color:colors.white ,fontSize:30}}/>
           <p>HACER PEDIDO</p>
         </ButtonWsp>
         
       </DivSpring>
-      <SpringDimensions/>
+     
+      <SpringDimensions text={"text"}/>
+      
+     
       </>
       
     }
     
     <p> "SPRING:"{JSON.stringify(spring)}</p>
-    <p>"CAR:" {JSON.stringify(car)}</p>
+    {/* <p>"CAR:" {JSON.stringify(car)}</p> */}
     </Wrapper>
   )
 }

@@ -19,7 +19,7 @@ export const SearchDiv = styled.div`
 export const StyledInput = styled.input`
   border-radius: 18px 0px 0px 18px;
   border:none;
-  background: ${colors.black.dark};
+  background: ${colors.white};
   color:white;
   padding:8px 10px;
   padding-left:20px; 
