@@ -1,31 +1,46 @@
 import styled from "@emotion/styled";
+import { colors } from "../../styles";
 
 export const Wrapper = styled.div`
-  width:240px;
-  height: 161px;
+  width:320px;
+  height: 200px;
   border-radius: 12px;
   border: 3px solid #363644;
-  background:white;
-  padding: 30px 30px;
-  box-shadow: 0px 8px 4px 0px #A4161A;
+  background:${colors.white};
+  padding: 12px 30px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  justify-content:space-between;
+  align-items: space-between;
   &:hover{
     scale:1.05;
   }
   div{
-    height:100%;
     width:100%;
+    height:100%;
     display:flex;
     align-items:center;
-    jsutify-content:center;
+    jsutify-content:space-between;
     flex-direction: column;
   }
   img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;  
+    height: 120px;
+    object-fit: contain;  
+  }
+  @media(max-width: 500px){
+    height:150px;
+    div{
+      justify-content:space-between;
+    }
+    img{
+      height:80px;
+    }
+  }
+  @media (max-width:1450px){
+    width:300px;
+  }
+  @media (max-width:1120px){
+    width:260px;
   }
 `
 

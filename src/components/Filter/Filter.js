@@ -16,7 +16,7 @@ export default function Filter({clave, text, year}){
   if(year==="start"){
     return(
       <Wrapper>
-      <p>AÑO &gt;=  {text} <span onClick={handleClosed}>X</span></p>
+      <p>AÑO = {text} <span onClick={handleClosed}>X</span></p>
     </Wrapper>
     )
   }
