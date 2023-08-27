@@ -2,11 +2,13 @@ import styled from "@emotion/styled";
 import { colors } from "../../styles";
 
 export const Wrapper = styled.div`
-  background: ${colors.black};
+  background: ${colors.black.dark};
   display:grid;
   grid-template-columns:310px 1fr;
-  padding: 100px 60px 60px 60px;
+  padding: 60px 60px 60px 60px;
   width:100%;
+  grid-gap: 50px;
+
 `
 export const DivSpring = styled.div`
   display:flex;

@@ -5,6 +5,7 @@ const AuthContext = createContext();
 function AuthProvider({ children }) {
   const [brands, setBrands] = useState(null)
   const [car, setCar] = useState(null)
+  const [spring, setSpring] = useState(null)
   const [codes, setCodes] = useState(null)
   const [visibleBrands, setvisibleBrands] = useState([])
   const [visibleModels, setVisibleModels] = useState([])
@@ -34,6 +35,8 @@ function AuthProvider({ children }) {
        codes,
        showFilter,
        car,
+       spring,
+       setSpring,
        visibleModels,
        versions,
        totalPages,
