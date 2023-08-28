@@ -11,24 +11,31 @@ export const Wrapper = styled.div`
 
 export const CodeContainer = styled.div`
   display:grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); 
   column-gap: 16px;
   row-gap: 20px;
   width:100%;
   justify-items:center;
   padding: 24px 24px 24px 0px;
   overflow-y: auto;
-  ::-webkit-scrollbar {
-    width: 12px;
+  /* Estilos para la barra lateral */
+  &::-webkit-scrollbar {
+    width: 8px; /* Ancho de la barra lateral */
   }
 
-  ::-webkit-scrollbar-track {
-    background-color: #f0f0f0;
+  &::-webkit-scrollbar-thumb {
+    background-color:${colors.gray.medium};
+    border-radius: 4px;
   }
 
-  ::-webkit-scrollbar-thumb {
-    background-color: #888;
-    border-radius: 6px;
+  &::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+    border-radius: 4px;
+  }
+  @media(max-width:500px){
+    padding-right:12px;
+    padding-left:12px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
   }
 `
 export const Main = styled.div`
@@ -39,15 +46,40 @@ export const Main = styled.div`
   background:${colors.black.medium};
   padding-left:48px;
   flex-direction:column;
-  padding-top:180px;
   justify-content:flex-start;  
-  height:100%;
-  
+  height:100vh;
+  /* Estilos para la barra lateral */
+  &::-webkit-scrollbar {
+    width: 8px; /* Ancho de la barra lateral */
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color:${colors.gray.medium};
+    border-radius: 4px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+    border-radius: 4px;
+  }
+  @media(max-width:500px){
+    padding:12px;
+  }
 `
 
-export const SearchText = styled.p`
-  color:${colors.black.dark};
-  ${typography.head.sm}
+export const FilterText = styled.div`
+  display:none;
+  width:100%;
+  padding-right:80px;
+  padding-bottom:16px;
+  @media(max-width:890px){
+    display:flex;
+    justify-content:flex-end;
+    gap: 4px;
+    p{
+      font-size:20px;
+    }
+  }
 `
 
 

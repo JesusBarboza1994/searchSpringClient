@@ -7,10 +7,11 @@ import SearchInterface from "./pages/SearchInterface/SearchInterface";
 import SpringView from "./pages/SpringView";
 import logo from "./assets/logo-transmeta.png"
 import { colors } from "./styles";
+import { useAuth } from "./context/auth-context";
 
 const Wrapper = styled.div`
-  height:100vh;
   background:${colors.black.medium};
+  padding-top: 160px;
 `
 const TitleContainer = styled.div`
 background: ${colors.red.light};
@@ -21,39 +22,49 @@ align-items: center;
 justify-content: center;
 position: absolute;
 width:100%;
-top: 40px;
+padding-right:24px;
+top: 30px;
 z-index:1;
 h1{
   font-size:40px;
   color: white;
 }
 @media (max-width: 500px){
-
+  height:100px;
 }
 `
 const LogoContainer = styled.div`
   background: ${colors.red.light};
-  padding:32px;
+  padding:16px;
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   img{
-    height:100%;
+    height:90px;
+  }
+  @media (max-width: 500px){
+    img{
+      height:60px;
+    }
   }
 `
 function App() {
-  const location = useLocation()
+  // const location = useLocation()
+  const {currentBrand} = useAuth()
   return(
     <Wrapper>
-        <TitleContainer>
-          {location.pathname ==="/suspension"? 
-          <h1>SUSPENSIÓN</h1>:
-          location.pathname ==="/"?
+      <TitleContainer>
+        {
+          currentBrand ? 
           <LogoContainer>
-          <img src={logo} alt="logo"/>
-          </LogoContainer>:<p>Holaa</p>
-          }
+            <img src={logo} alt="logo"/>
+            <img src={`https://drive.google.com/uc?export=view&id=${currentBrand}`} alt="sin imagen"/>
+          </LogoContainer> :
+          <LogoContainer>
+            <img src={logo} alt="logo"/>
+          </LogoContainer>
+        }
       </TitleContainer>
       <Routes>
         <Route path="/" element={<Home/>} />

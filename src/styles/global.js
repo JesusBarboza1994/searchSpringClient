@@ -11,6 +11,20 @@ export const reset = css`
 *::after {
   box-sizing: border-box;
 }
+/* Estilos para la barra lateral */
+&::-webkit-scrollbar {
+  width: 8px; /* Ancho de la barra lateral */
+}
+
+&::-webkit-scrollbar-thumb {
+  background-color:${colors.gray.medium};
+  border-radius: 4px;
+}
+
+&::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+  border-radius: 4px;
+}
 
 /* Remove default margin */
 body,
@@ -84,7 +98,7 @@ select {
 export const global = css`
   body {
     margin:0;
-    background:black;
+    background:${colors.black.medium};
     font-size: 1rem;
     line-height: 1.5rem;
     font-family: ${fonts.primary};

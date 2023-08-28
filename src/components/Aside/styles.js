@@ -4,13 +4,13 @@ import { colors, typography } from "../../styles";
 export const Wrapper = styled.aside`
   background: ${colors.white};
   color: ${colors.black.light};
-  display:flex;
-  flex-direction:column;
   padding: 12px 32px;
-  width:300px;
-  height:100%;
-  position:sticky;
-  margin-top:160px;
+  width:320px;
+  overflow-y: auto;
+  overflow-x:hidden;
+  @media(max-width:890px){
+    display:${props=>props.show ? "flex": "none"};
+  }
 `
 export const FilterContainer = styled.div`
   width:100%;
@@ -20,6 +20,7 @@ export const FilterContainer = styled.div`
   position:sticky;
   margin-bottom:8px;
   margin-left:12px;
+  // display:${props=>props.show ? "flex": "none"};
 `
 export const FilterOptionsTitle = styled.div`
   ${typography.head.xxs};
@@ -69,7 +70,7 @@ export const YearSelectionDiv = styled.div`
   justify-items:center;
   margin-bottom:12px;
   p{
-    font-size:14px;
+    font-size:13px;
     font-weight:600;
     line-height:18px;
     text-align:center;

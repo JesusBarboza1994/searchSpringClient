@@ -1,15 +1,15 @@
 import styled from "@emotion/styled";
-import { typography } from "../../styles";
+import { colors, typography } from "../../styles";
 
 export const Wrapper = styled.div`
-  background: black;
-  padding: 100px 60px 60px 60px;
+  background: ${colors.black.medium};
+  padding: 0 60px 60px 60px;
   width:100%;
   p{
     color: white;
   }
   @media(max-width:500px){
-    padding: 100px 24px 60px 24px;
+    padding: 0 24px 60px 24px;
   }
 `
 export const BrandCardContainer = styled.div`
@@ -27,7 +27,7 @@ export const MainContainer = styled.div`
   max-width:1400px;
   padding: 42px auto;
   gap:84px;
-  margin-top:140px;
+  margin-top:40px;
   .search{
     display:flex;
     align-items:center;

@@ -1,13 +1,15 @@
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/auth-context";
 import { Wrapper, DivImg, DivCode, DivDescription } from "./styles";
+import notFound from "../../assets/NotFound.png"
 
 export default function CodeCard({code, car, id}){
   const { setCar} = useAuth()
   const nav = useNavigate()
   const handleClick = () =>{
+    sessionStorage.removeItem("car")
     setCar(car)
-    console.log("CARRO", car)
+    sessionStorage.setItem("car", JSON.stringify(car))
     nav(`${id}`)
   }
   let position = "";
@@ -19,7 +21,12 @@ export default function CodeCard({code, car, id}){
         <p>{code.osis_code}</p>
       </DivCode>
       <DivImg>
-        <img src={`https://drive.google.com/uc?export=view&id=${code.img_url}`} alt="sin imagen"/>
+        {
+          code.img_url ? 
+          <img src={`https://drive.google.com/uc?export=view&id=${code.img_url}`} alt="sin imagen"/>
+          :
+          <img src={notFound} alt="sin imagen"/>
+        }
       </DivImg>
       <DivDescription>
         <p>{car.brand.name} {car.model}</p> 

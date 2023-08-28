@@ -1,16 +1,18 @@
 import { useEffect } from "react"
 import { useAuth } from "../../context/auth-context"
-import { BrandCardContainer, Wrapper, TitleContainer, MainContainer} from "./styles"
+import { BrandCardContainer, Wrapper, MainContainer} from "./styles"
 import { getBrands } from "../../services/brand-service"
 import BrandCard from "../../components/BrandCard"
 import SearchBar from "../../components/SearchBar/SearchBar"
 
 
 export default function Suspension(){
-  const {setBrands, brands} = useAuth()
+  const {setBrands, brands, setCurrentBrand} = useAuth()
   useEffect(() => {
     getBrands().then(response=>{
       setBrands(response)
+      sessionStorage.setItem("brands", JSON.stringify(response))
+      setCurrentBrand(null)
     }).catch(error => { console.log(error) })
   }, [])
   
@@ -19,7 +21,7 @@ export default function Suspension(){
     
       <MainContainer>
         <div className="search">
-          <p>Elije tu marca</p>
+          <p>Elige tu marca</p>
           <SearchBar/>
         </div>
         <BrandCardContainer>

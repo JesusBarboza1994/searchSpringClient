@@ -28,6 +28,7 @@ export default function Pagination(){
   }, [filters, totalPages])
   
   const nextPage = ()=>{
+    sessionStorage.setItem("currentPage", currentPage+1)
     setCurrentPage(currentPage+1)
     if(currentPage % numberOfPages === 0){
       if(currentPage+numberOfPages > totalPages){
@@ -38,6 +39,7 @@ export default function Pagination(){
     }
   }
   const prevPage = () =>{
+    sessionStorage.setItem("currentPage", currentPage+1)
     setCurrentPage(currentPage-1)
     if(currentPage % numberOfPages === 1){
       setComponents(generateNumberArray(currentPage-1, currentPage-numberOfPages))
@@ -46,18 +48,20 @@ export default function Pagination(){
   return(
     <Wrapper>
       {
-      currentPage !== 1 && <MdArrowBackIos style={{color:colors.gray.light}} onClick={prevPage}/>
+      currentPage !== 1 && <MdArrowBackIos style={{color:colors.gray.light, cursor:"pointer"}} onClick={prevPage}/>
       }
       {components.map((number, i) =>{
         if(number === currentPage){
           return <Page text={number} key={i} current={true}/>
         }else{
-          return <Page text={number} key={i} onClick={()=>setCurrentPage(number)}/> 
+          return <Page text={number} key={i} onClick={()=>{
+            sessionStorage.setItem("currentPage", number)
+            setCurrentPage(number)}}/> 
         }
       })
       }
       {
-        currentPage !== totalPages && <MdArrowForwardIos style={{color:colors.gray.light}} onClick={nextPage}/>
+        currentPage !== totalPages && <MdArrowForwardIos style={{color:colors.gray.light, cursor:"pointer"}} onClick={nextPage}/>
       }
     
     </Wrapper>

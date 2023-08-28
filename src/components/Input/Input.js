@@ -8,7 +8,7 @@ export default function Input({year, placeholder="2020", typeYear, onChange}){
     if(typeYear === "year"){
       clearTimeout(typingTimer); // Reiniciar el temporizador cada vez que se presiona una tecla
       typingTimer = setTimeout(function() {
-        console.log(e.target.value)
+        sessionStorage.setItem("filters", JSON.stringify({...filters, startYear: e.target.value}))
         setFilters({...filters, startYear: e.target.value})
       }, delayTime);
     }

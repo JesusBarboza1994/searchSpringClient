@@ -10,28 +10,20 @@ import { useState } from "react";
 import { colors } from "../../styles";
 
 export default function Aside(){
-  const { codes, versions, positions, filters, setFilters, showFilter, setShowFilter, visibleBrands,visibleModels,setvisibleBrands, setVisibleModels } = useAuth();
+  const {versions, positions, filters, setCurrentPage, setFilters, showResponsiveFilter, setCurrentBrand, visibleBrands,visibleModels,setvisibleBrands, setVisibleModels } = useAuth();
   const [rangeYear, setRangeYear] = useState({
     rangeInit:null,
     rangeEnd:null
   })
   const [showYear, setShowYear] = useState(true)
-  const showAllBrands = () => {
-    setvisibleBrands(!showFilter.brand ? codes.brands : codes.brands.slice(0, 5))
-    setShowFilter({ ...showFilter, brand: !showFilter.brand })
-  }
-  const showAllModels = () => {
-    setVisibleModels(!showFilter.model ? codes.models : codes.models.slice(0, 5))
-    setShowFilter({ ...showFilter, model: !showFilter.model })
-  }
   const handleRangeYear = () =>{
     setFilters({...filters, startYear:rangeYear.rangeInit, endYear:rangeYear.rangeEnd})
   }
   return(
-    <Wrapper>
+    <Wrapper show={showResponsiveFilter}>
     {
       Object.values(filters).find(filter =>filter !== null) &&
-      <FilterOptionsTitle><FaFilter/> Filtros seleccionados</FilterOptionsTitle>
+      <FilterOptionsTitle><FaFilter/> Filtros</FilterOptionsTitle>
     }
   <FilterContainer>
     {Object.entries(filters).map(([clave, valor]) => {
@@ -55,22 +47,21 @@ export default function Aside(){
         startYear: null,
         endYear: null,
         vers: null
-      })}}>Borrar los filtros</CleanFilter>
+      })
+      setCurrentBrand(null)
+      setCurrentPage(1)
+      sessionStorage.setItem("currentPage", 1)
+      }}>Borrar los filtros</CleanFilter>
     }
     {
       (!filters.brand ) &&
       <>
         <FilterTitle>MARCA</FilterTitle>
         <FilterSearch setVisibleValues={setvisibleBrands} clave={"brands"}/>
-        <CheckBoxGroup>
+        <CheckBoxGroup style={{overflowY:"auto", maxHeight:"140px"}}>
           {visibleBrands?.map((brand, index) => (
-            <CheckBox key={brand + index} text={brand} clave={"brand"}/>
+            <CheckBox key={brand + index} text={brand} clave={"brand"} img={brand.img_url}/>
           ))}
-          {
-            showFilter.brand ?
-            <p onClick={showAllBrands}>Ver menos</p> :
-            <p onClick={showAllBrands}>Ver más</p>
-          }
         </CheckBoxGroup>
       </>
     }
@@ -79,15 +70,10 @@ export default function Aside(){
       <>
         <FilterTitle>MODELO</FilterTitle>
         <FilterSearch setVisibleValues={setVisibleModels} clave={"models"}/>
-        <CheckBoxGroup>
+        <CheckBoxGroup style={{overflowY:"auto", maxHeight:"140px"}}>
           {visibleModels?.map((model, index) => (
             <CheckBox key={model + index} text={model} clave={"model"}/>
           ))}
-          {
-            showFilter.model ?
-            <p onClick={showAllModels}>Ver menos</p> :
-            <p onClick={showAllModels}>Ver más</p>
-          }
         </CheckBoxGroup>
       </>
     }
@@ -119,7 +105,7 @@ export default function Aside(){
         <FilterTitle>AÑO</FilterTitle>
         <YearSelectionDiv showYear={showYear}>
           <p style={{color:`${showYear ? colors.black.dark: colors.gray.light}`}}>AÑO DEL VEHÍCULO</p>
-          <Switch onClick={()=>setShowYear(!showYear)}>
+          <Switch onClick={()=>setShowYear(!showYear)} >
             <SwitchSide showYear={showYear}/>
           </Switch>
           <p style={{color:`${!showYear ? colors.black.dark: colors.gray.light}`}}>RANGO DE AÑOS</p>

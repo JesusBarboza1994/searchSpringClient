@@ -21,10 +21,19 @@ export const Wrapper = styled.div`
     align-items:center;
     justify-content:center;
   }
+  @media(max-width:500px){
+    width:150px;
+    height: 216px;
+  }
 `
 export const DivImg = styled.div`
   img{
     height:250px;
+  }
+  @media(max-width:500px){
+    img{
+      height: 120px;
+    }
   }
 `
 export const DivCode = styled.div`
@@ -39,6 +48,13 @@ export const DivCode = styled.div`
   color: ${colors.white};
   p{
     font-size:24px;
+  }
+  @media(max-width:500px){
+    padding: 4px 36px;
+    max-height:30px;
+    p{
+      font-size: 16px;
+    }
   }
 `
 export const DivDescription = styled.div`
@@ -56,4 +72,10 @@ export const DivDescription = styled.div`
     font-size:16px;
     line-height: 16px;
   }
-  `
+  @media(max-width:500px){
+    p{
+      font-size: 12px;
+      line-height: 12px;
+    }
+  }
+`

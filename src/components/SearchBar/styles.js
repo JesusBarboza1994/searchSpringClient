@@ -23,7 +23,7 @@ export const StyledInput = styled.input`
   border-radius: 18px 0px 0px 18px;
   border:none;
   background: ${colors.white};
-  color:white;
+  color:${colors.black.dark};
   padding:8px 10px;
   padding-left:20px; 
   width:100%;

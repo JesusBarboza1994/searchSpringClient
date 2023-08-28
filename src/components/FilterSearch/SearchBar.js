@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { FilterSearchDiv, StyledInput } from "./styles";
 import {RiSearchLine} from "react-icons/ri"
 import { IoIosArrowBack } from "react-icons/io"
@@ -11,11 +11,7 @@ export default function FilterSearch({setVisibleValues, clave}){
   const handleChange = (e)=>{
     const value = e.target.value.toUpperCase()
     setSearch(value)
-    if(value===""){
-      setVisibleValues(codes[clave].slice(0, 5))
-    }else{
       setVisibleValues(codes[clave].filter(el =>el.includes(value.toUpperCase())))
-    }
   }
   return(
     <FilterSearchDiv>

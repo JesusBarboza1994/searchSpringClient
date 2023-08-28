@@ -19,16 +19,16 @@ export const Wrapper = styled.div`
     font-size:100px;
     color: white;
     text-shadow: 0px 8px 4px #A4161A;
-    padding-top:100px;
   }
   @media(max-width: 800px){
+    margin-top:0px;
     h1{
       ${typography.head.xl};
       font-weight:600;
     }
   }
   @media(max-width: 500px){
-    margin-top: 80px;
+    margin-top: 0px;
     h1{
       ${typography.head.md};
       font-weight:600;

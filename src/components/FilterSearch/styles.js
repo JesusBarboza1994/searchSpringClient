@@ -7,7 +7,7 @@ export const FilterSearchDiv = styled.div`
   gap:8px;
   background:white;
   padding:2px;
-  width: 70%;
+  width: 100%;
   padding-left:10px;
   margin-top:8px;
   border-radius:16px;

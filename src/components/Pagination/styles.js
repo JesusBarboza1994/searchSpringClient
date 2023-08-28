@@ -7,6 +7,10 @@ export const Wrapper = styled.div`
   align-items:center;
   justify-content:center;
   margin: 12px auto;
+  flex-wrap:wrap;
+  @media(max-width:500px){
+    gap:5px;
+  }
 `
 
 export const PageBox = styled.div`
@@ -20,4 +24,10 @@ export const PageBox = styled.div`
   align-items:center;
   border-radius: 8px;
   justify-content:center;
+  @media(max-width:500px){
+    height: 22px;
+    width: 22px;
+    border-radius: 6px;
+    font-size:14px;
+  }
 `
