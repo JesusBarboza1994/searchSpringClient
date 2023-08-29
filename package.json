@@ -1,6 +1,7 @@
 {
   "name": "search_spring_client",
   "version": "0.1.0",
+  "homepage": "https://search-spring-mrc.netlify.app/",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.11.1",
