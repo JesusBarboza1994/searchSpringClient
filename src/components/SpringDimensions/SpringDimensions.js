@@ -9,10 +9,12 @@ export default function SpringDimensions({setShowModal}){
 
   const {spring} = useAuth();
   if(!spring) return
-  const handleWhatsapp = ()=>{
-    window.location.href = `
-    https://api.whatsapp.com/send/?phone=51977354389&text=Hola.+Quiero+comprar+un+par+de+resortes+del+codigo+${spring.code.osis_code}&type=phone_number&app_absent=0`
-  }
+  const handleWhatsapp = () => {
+  const springCode = encodeURIComponent(spring.code.osis_code);
+  const whatsappUrl = `https://api.whatsapp.com/send/?phone=51998195120&text=Hola.+Quiero+comprar+un+par+de+resortes+del+codigo+${springCode}&type=phone_number&app_absent=0`;
+
+  window.open(whatsappUrl, '_blank');
+}
   const isStock = ()=>{
     const stock = Object.values(spring.spring.stock).reduce((acc, val) =>acc = acc + val,0)
     return stock === 0 ? false : true
@@ -20,8 +22,8 @@ export default function SpringDimensions({setShowModal}){
  return (
   <Wrapper>
     <InfoDiv>
-      <DivInput>
-        <label>ALAMBRE</label>
+        <DivInput>
+          <label>ALAMBRE</label>
         <StyledInput value={spring.spring.wire} readOnly />
       </DivInput>
       <DivInput>
