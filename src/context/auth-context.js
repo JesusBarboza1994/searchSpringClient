@@ -14,7 +14,7 @@ function AuthProvider({ children }) {
   const [totalPages, setTotalPages] = useState(JSON.parse(sessionStorage.getItem("totalPages"))|| null)
   const [positions, setPositions] = useState(JSON.parse(sessionStorage.getItem("positions")) || [])
   const [currentBrand, setCurrentBrand] = useState(JSON.parse(sessionStorage.getItem("currentBrand"))|| null)
-  const [showReponsiveFilter, setshowReponsiveFilter] = useState(false)
+  const [showResponsiveFilter, setShowResponsiveFilter] = useState(false)
   const [filters, setFilters] = useState(JSON.parse(sessionStorage.getItem("filters")) ||{
     brand: null,
     model: null,
@@ -44,8 +44,8 @@ function AuthProvider({ children }) {
        totalPages,
        currentPage,
        currentBrand,
-       showReponsiveFilter,
-       setshowReponsiveFilter,
+       showResponsiveFilter,
+       setShowResponsiveFilter,
        setCurrentBrand,
        setCurrentPage,
        setTotalPages,

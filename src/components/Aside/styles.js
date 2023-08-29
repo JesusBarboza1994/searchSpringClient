@@ -4,14 +4,25 @@ import { colors, typography } from "../../styles";
 export const Wrapper = styled.aside`
   background: ${colors.white};
   color: ${colors.black.light};
-  padding: 12px 32px;
-  width:320px;
+  padding: 12px 24px;
   overflow-y: auto;
+  position:relative;
   overflow-x:hidden;
-  @media(max-width:890px){
-    display:${props=>props.show ? "flex": "none"};
+  z-index:1;
+  @media(max-width:900px){
+    display:${props=>props.show ? "block": "none"};
+    position:absolute;
+    height:100%;
+    top:170px;
+  }
+  @media (max-width: 550px){
+    top:130px;
   }
 `
+export const DivFilterContainer =styled.div`
+  display:${props => props.resposiveFilter ? "block": "none"}
+`
+
 export const FilterContainer = styled.div`
   width:100%;
   display: flex;
@@ -70,7 +81,7 @@ export const YearSelectionDiv = styled.div`
   justify-items:center;
   margin-bottom:12px;
   p{
-    font-size:13px;
+    font-size:12px;
     font-weight:600;
     line-height:18px;
     text-align:center;
@@ -82,5 +93,23 @@ export const InputDiv = styled.div`
   align-items:center;
   p{
     font-size:50px;
+  }
+`
+export const Close = styled.div`
+  position:absolute;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:800;
+  background:${colors.gray.light};
+  cursor:pointer;
+  height:20px;
+  width:20px;
+  top:18px;
+  right:18px;
+  font-size: 12px;
+  @media(min-width:890px){
+    display:none;
   }
 `

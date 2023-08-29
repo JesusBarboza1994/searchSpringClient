@@ -9,7 +9,7 @@ import {FaFilter} from "react-icons/fa"
 import { colors } from "../../styles";
 import {MdSearchOff} from "react-icons/md"
 export default function SearchInterface() {
-  const { codes, showReponsiveFilter,setshowReponsiveFilter, setTotalPages, setCodes, filters, setCurrentPage, setVersions,setPositions,setvisibleBrands, setVisibleModels, currentPage, totalPages } = useAuth();
+  const { codes, showResponsiveFilter,setShowResponsiveFilter, setTotalPages, setCodes, filters, setCurrentPage, setVersions,setPositions,setvisibleBrands, setVisibleModels, currentPage } = useAuth();
   
   useEffect(() => {
     getCodes({...filters, currentPage})
@@ -56,9 +56,9 @@ export default function SearchInterface() {
       <Aside/>
       <Main>
         <FilterText onClick={()=>{
-          setshowReponsiveFilter(!showReponsiveFilter)}}>
-          <FaFilter style={{color: colors.white, fontSize:"24px"}}/>
-          <p>Filtros</p>
+          setShowResponsiveFilter(!showResponsiveFilter)}}>
+          <FaFilter style={{color: colors.white, fontSize:"16px"}}/>
+          <p>Mostrar filtros</p>
         </FilterText>
         <CodeContainer>
           {codes.codes.length === 0 ?

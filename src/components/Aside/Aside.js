@@ -1,6 +1,6 @@
 import { useAuth } from "../../context/auth-context";
 import Filter from "../Filter/Filter";
-import { CheckBoxGroup, CleanFilter, FilterContainer, FilterOptionsTitle, FilterTitle, InputDiv, Switch, SwitchSide, Wrapper, YearSelectionDiv } from "./styles";
+import { CheckBoxGroup, CleanFilter, Close, FilterContainer, FilterOptionsTitle, FilterTitle, InputDiv, Switch, SwitchSide, Wrapper, YearSelectionDiv } from "./styles";
 import {FaFilter} from "react-icons/fa"
 import FilterSearch from "../FilterSearch/SearchBar";
 import CheckBox from "../CheckBox/CheckBox";
@@ -10,7 +10,7 @@ import { useState } from "react";
 import { colors } from "../../styles";
 
 export default function Aside(){
-  const {versions, positions, filters, setCurrentPage, setFilters, showResponsiveFilter, setCurrentBrand, visibleBrands,visibleModels,setvisibleBrands, setVisibleModels } = useAuth();
+  const {setShowResponsiveFilter, versions, positions, filters, setCurrentPage, setFilters, showResponsiveFilter, setCurrentBrand, visibleBrands,visibleModels,setvisibleBrands, setVisibleModels } = useAuth();
   const [rangeYear, setRangeYear] = useState({
     rangeInit:null,
     rangeEnd:null
@@ -19,26 +19,30 @@ export default function Aside(){
   const handleRangeYear = () =>{
     setFilters({...filters, startYear:rangeYear.rangeInit, endYear:rangeYear.rangeEnd})
   }
+  const handleClose = () =>{
+    setShowResponsiveFilter(false)
+  }
   return(
-    <Wrapper show={showResponsiveFilter}>
+    <Wrapper show={showResponsiveFilter }>
+      <Close onClick={handleClose}>X</Close>
     {
       Object.values(filters).find(filter =>filter !== null) &&
       <FilterOptionsTitle><FaFilter/> Filtros</FilterOptionsTitle>
     }
-  <FilterContainer>
-    {Object.entries(filters).map(([clave, valor]) => {
-      if(filters.startYear && filters.endYear && (clave === "startYear" || clave === "endYear" )) return 
-      if(clave==="startYear" && valor) return <Filter key={clave} text={valor} clave={clave} year={"start"} />;
-      if(clave==="endYear" && valor) return <Filter key={clave} text={valor} clave={clave} year={"end"} />;
-      if (valor) {
-        return <Filter key={clave} text={valor} clave={clave} year={null} />;
+    <FilterContainer>
+      {Object.entries(filters).map(([clave, valor]) => {
+        if(filters.startYear && filters.endYear && (clave === "startYear" || clave === "endYear" )) return 
+        if(clave==="startYear" && valor) return <Filter key={clave} text={valor} clave={clave} year={"start"} />;
+        if(clave==="endYear" && valor) return <Filter key={clave} text={valor} clave={clave} year={"end"} />;
+        if (valor) {
+          return <Filter key={clave} text={valor} clave={clave} year={null} />;
+        }
+      })}
+      {
+        (filters.startYear && filters.endYear) &&
+        <Filter key={"both"} text={`${filters.startYear}<= AÑO <= ${filters.endYear}`} year={"both"}/>
       }
-    })}
-    {
-      (filters.startYear && filters.endYear) &&
-      <Filter key={"both"} text={`${filters.startYear}<= AÑO <= ${filters.endYear}`} year={"both"}/>
-    }
-  </FilterContainer>
+    </FilterContainer>
     { Object.values(filters).find(filter =>filter !== null) &&
       <CleanFilter onClick={()=>{setFilters({
         brand: null,

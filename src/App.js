@@ -1,4 +1,4 @@
-import { Route, Routes, useLocation } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import Suspension from "./pages/Suspension";
 import Puertas from "./pages/Puertas/Puertas";
@@ -11,7 +11,7 @@ import { useAuth } from "./context/auth-context";
 
 const Wrapper = styled.div`
   background:${colors.black.medium};
-  padding-top: 160px;
+  padding-top: 170px;
 `
 const TitleContainer = styled.div`
 background: ${colors.red.light};
@@ -29,7 +29,7 @@ h1{
   font-size:40px;
   color: white;
 }
-@media (max-width: 500px){
+@media (max-width: 550px){
   height:100px;
 }
 `
@@ -43,9 +43,21 @@ const LogoContainer = styled.div`
   img{
     height:90px;
   }
-  @media (max-width: 500px){
+  @media (max-width: 650px){
+    padding-right:12px;
+    img{
+      height:80px;
+    }
+  }
+  @media (max-width: 550px){
+    padding-right:0;
     img{
       height:60px;
+    }
+  }
+  @media (max-width: 450px){
+    img{
+      height:50px;
     }
   }
 `

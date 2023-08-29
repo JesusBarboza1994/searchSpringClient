@@ -63,14 +63,14 @@ export default function SpringView(){
         <h3>CANTIDADES DISPONIBLES</h3>
         <Table>
           <TableHeader>
-            <th>ALMACÉN</th>
+            <th>N°</th>
             <th>NOMBRE</th>
             <th>CANTIDAD</th>
           </TableHeader>
           {
           Object.entries(spring.spring.stock).map(([key, value])=>{
             return(
-              <TableRow>
+              <TableRow key={key+value}>
                 <td>{key}</td>
                 <td>{nameSuppliers[key]}</td>
                 <td>{value}</td>

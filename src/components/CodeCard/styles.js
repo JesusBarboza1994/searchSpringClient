@@ -21,6 +21,9 @@ export const Wrapper = styled.div`
     align-items:center;
     justify-content:center;
   }
+  @media(max-width:900px){
+    width:200px;
+  }
   @media(max-width:500px){
     width:150px;
     height: 216px;

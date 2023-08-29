@@ -1,6 +1,5 @@
 import styled from "@emotion/styled";
 import { colors } from "../../styles/colors";
-import { typography } from "../../styles";
 
 export const Wrapper = styled.div`
   background: ${colors.white};
@@ -11,7 +10,7 @@ export const Wrapper = styled.div`
 
 export const CodeContainer = styled.div`
   display:grid;
-  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); 
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); 
   column-gap: 16px;
   row-gap: 20px;
   width:100%;
@@ -32,10 +31,17 @@ export const CodeContainer = styled.div`
     background-color: #f1f1f1;
     border-radius: 4px;
   }
-  @media(max-width:500px){
+  @media(max-width:900px){
     padding-right:12px;
     padding-left:12px;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+    gap-row:20px;
+  }
+  @media(max-width:500px){
+    padding-right:12px;
+    padding-left:12px;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); 
+    gap-row:20px;
   }
 `
 export const Main = styled.div`
@@ -70,15 +76,17 @@ export const Main = styled.div`
 export const FilterText = styled.div`
   display:none;
   width:100%;
-  padding-right:80px;
+  padding-right:60px;
   padding-bottom:16px;
+  p{
+    font-size:16px;
+  }
   @media(max-width:890px){
     display:flex;
     justify-content:flex-end;
+    align-items:center;
     gap: 4px;
-    p{
-      font-size:20px;
-    }
+    padding-right:20px;
   }
 `
 

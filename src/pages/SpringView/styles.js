@@ -19,7 +19,10 @@ export const Wrapper = styled.div`
     flex-direction:column;
     margin:auto;
     align-items:center;
-    padding:20px;
+    padding:40px;
+  }
+  @media(max-width: 550px){
+    padding-top:20px;
   }
 `
 export const DivSpring = styled.div`
@@ -90,7 +93,7 @@ export const DivImg = styled.div`
 export const MirrorScreen = styled.div`
    position: absolute;
    width:100%;
-   height:100%;
+   height:120vh;
    top:0;
    z-index:1;
    opacity:0.6;
@@ -98,6 +101,12 @@ export const MirrorScreen = styled.div`
    display:${props=>props.showModal ? "flex": "none"};
    align-items:center;
    justify-content:center;
+   @media(max-width:1200px){
+    height:120vh;
+   }
+   @media(max-width:850px){
+    height:150vh;
+   }
 `
 export const Modal = styled.div`
   display:${props=>props.showModal ? "flex": "none"};
@@ -107,6 +116,7 @@ export const Modal = styled.div`
   height:100%;
   align-items:center;
   justify-content:center;
+
 `
 
 export const TableDiv = styled.div`
@@ -126,6 +136,25 @@ export const TableDiv = styled.div`
     color: ${colors.white};
     font-size:24px;
   }
+  @media(max-width:800px){
+    width: 600px;
+    height:400px;
+    h3{
+      font-size:20px;
+    }
+  }
+  @media(max-width:650px){
+    width: 450px;
+    height: 310px;
+    h3{
+      font-size:18px;
+    }
+  }
+  @media(max-width:450px){
+    width: 360px;
+    height:250px;
+    justify-content:flex-end;
+  }
 `
 
 export const TableHeader = styled.tr`
@@ -135,34 +164,57 @@ export const TableRow = styled.tr`
   background:${colors.white};
 `
 export const Table = styled.table`
-   border-collapse: collapse;
-   width:550px;
-   height:220px;
-   text-align:center;
-   th, td {
-    padding: 4px; /* Espaciado interno de las celdas */
-    text-align: center; /* Alineación de texto */
-}
-tr {
-    border-bottom: 2px solid black; /* Agregar borde inferior solo a las filas */
-}
-td {
-    border-right: none; /* Eliminar borde derecho de las celdas de datos */
-}
+  border-collapse: collapse;
+  width:550px;
+  height:220px;
+  text-align:center;
+  th, td {
+  padding: 4px; /* Espaciado interno de las celdas */
+  text-align: center; /* Alineación de texto */
+  }
+  tr {
+      border-bottom: 2px solid black; /* Agregar borde inferior solo a las filas */
+  }
+  td {
+      border-right: none; /* Eliminar borde derecho de las celdas de datos */
+  }
+  @media(max-width:800px){
+    width: 400px;
+    font-size: 12px;
+    th, td {
+      padding: 0px;
+      max-width:150px;
+    }
+  }
+  @media(max-width:650px){
+    width: 350px;
+    font-size: 12px;
+  }
+  @media(max-width:450px){
+    width: 300px;
+    font-size: 10px;
+    height:160px;
+    td, th{
+      height:30px;
+    }
+  }
 `
 export const Close = styled.div`
   position:absolute;
-  top:24px;
-  right:24px;
   border-radius:50%;
-  height:30px;
-  width:30px;
   display:flex;
   align-items:center;
   justify-content:center;
   font-weight:800;
   background:${colors.gray.light};
   cursor:pointer;
+  // @media(max-width:650px){
+    height:20px;
+    width:20px;
+    top:18px;
+    right:18px;
+    font-size: 12px;
+  // }
 `
 
 
