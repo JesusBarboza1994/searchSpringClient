@@ -1,13 +1,12 @@
 import { useEffect } from "react";
 import { useAuth } from "../../context/auth-context";
-import { CodeContainer, Main, FilterText, Wrapper  } from "./styles";
+import { CodeContainer, Main, FilterText, Wrapper, StyledMdSearchOff  } from "./styles";
 import { getCodes } from "../../services/codes-service";
 import CodeCard from "../../components/CodeCard/CodeCard";
 import Aside from "../../components/Aside/Aside";
 import Pagination from "../../components/Pagination/Pagination";
 import {FaFilter} from "react-icons/fa"
 import { colors } from "../../styles";
-import {MdSearchOff} from "react-icons/md"
 export default function SearchInterface() {
   const { codes, showResponsiveFilter,setShowResponsiveFilter, setTotalPages, setCodes, filters, setCurrentPage, setVersions,setPositions,setvisibleBrands, setVisibleModels, currentPage } = useAuth();
   
@@ -63,7 +62,7 @@ export default function SearchInterface() {
         <CodeContainer>
           {codes.codes.length === 0 ?
 
-          <MdSearchOff style={{color:"white", fontSize:600, opacity:0.5}}/> :
+          <StyledMdSearchOff/> :
           codes.codes.map((code) =>
             code.cars.map((car, i) => (
               <CodeCard code={code} key={`${code.osis_code}+${i}`} car={car} id={code.id}/>

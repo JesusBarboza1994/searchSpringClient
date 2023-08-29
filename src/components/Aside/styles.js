@@ -8,6 +8,7 @@ export const Wrapper = styled.aside`
   overflow-y: auto;
   position:relative;
   overflow-x:hidden;
+  width:320px;
   z-index:1;
   @media(max-width:900px){
     display:${props=>props.show ? "block": "none"};

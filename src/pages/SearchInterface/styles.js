@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import { colors } from "../../styles/colors";
+import {MdSearchOff} from "react-icons/md"
 
 export const Wrapper = styled.div`
   background: ${colors.white};
@@ -87,6 +88,17 @@ export const FilterText = styled.div`
     align-items:center;
     gap: 4px;
     padding-right:20px;
+  }
+`
+export const StyledMdSearchOff = styled(MdSearchOff)`
+  color:${colors.white};
+  font-size:600px; 
+  opacity:0.5;
+  @media(max-width:750px){
+    font-size: 400px;
+  }
+  @media(max-width:500px){
+    font-size: 300px;
   }
 `
 

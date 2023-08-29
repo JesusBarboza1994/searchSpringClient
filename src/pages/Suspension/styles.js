@@ -8,16 +8,18 @@ export const Wrapper = styled.div`
   p{
     color: white;
   }
-  @media(max-width:500px){
+  @media(max-width:700px){
     padding: 0 24px 60px 24px;
   }
 `
 export const BrandCardContainer = styled.div`
   display:grid;
-  grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   row-gap:32px;
   justify-items:center;
-
+  @media(max-width:1050px){
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  }
 `
 
 export const MainContainer = styled.div`

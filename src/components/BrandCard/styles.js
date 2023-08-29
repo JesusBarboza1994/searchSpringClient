@@ -20,14 +20,15 @@ export const Wrapper = styled.div`
     height:100%;
     display:flex;
     align-items:center;
-    jsutify-content:space-between;
+    justify-content:space-between;
     flex-direction: column;
   }
   img{
     height: 120px;
     object-fit: contain;  
   }
-  @media(max-width: 500px){
+  @media (max-width:1120px){
+    width:260px;
     height:150px;
     div{
       justify-content:space-between;
@@ -36,11 +37,8 @@ export const Wrapper = styled.div`
       height:80px;
     }
   }
-  @media (max-width:1450px){
-    width:300px;
-  }
-  @media (max-width:1120px){
-    width:260px;
+  @media(max-width: 700px){
+    padding:
   }
 `
 

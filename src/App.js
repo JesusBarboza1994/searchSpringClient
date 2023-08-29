@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useNavigate } from "react-router-dom";
 import Home from "./pages/Home";
 import Suspension from "./pages/Suspension";
 import Puertas from "./pages/Puertas/Puertas";
@@ -12,6 +12,9 @@ import { useAuth } from "./context/auth-context";
 const Wrapper = styled.div`
   background:${colors.black.medium};
   padding-top: 170px;
+  @media(max-width:550px){
+    padding-top:130px;
+  }
 `
 const TitleContainer = styled.div`
 background: ${colors.red.light};
@@ -62,7 +65,7 @@ const LogoContainer = styled.div`
   }
 `
 function App() {
-  // const location = useLocation()
+  const nav = useNavigate()
   const {currentBrand} = useAuth()
   return(
     <Wrapper>
@@ -70,7 +73,7 @@ function App() {
         {
           currentBrand ? 
           <LogoContainer>
-            <img src={logo} alt="logo"/>
+            <img src={logo} alt="logo" onClick={()=>nav("/suspension")}/>
             <img src={`https://drive.google.com/uc?export=view&id=${currentBrand}`} alt="sin imagen"/>
           </LogoContainer> :
           <LogoContainer>
