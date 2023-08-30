@@ -5,7 +5,7 @@ export const Wrapper = styled.div`
   display:flex;
   padding: 100px 60px 60px 60px;
   flex-direction:column;
-  gap:64px;
+  gap:120px;
   align-items:center;
   margin-top:120px;
   img{
@@ -22,6 +22,7 @@ export const Wrapper = styled.div`
   }
   @media(max-width: 800px){
     margin-top:0px;
+    gap:64px;
     h1{
       ${typography.head.xl};
       font-weight:600;

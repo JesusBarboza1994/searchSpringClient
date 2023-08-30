@@ -11,6 +11,7 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content:space-between;
+  cursor: pointer;
   align-items: space-between;
   &:hover{
     scale:1.05;

@@ -91,14 +91,18 @@ export const ButtonWsp = styled.button`
 export const InfoDiv = styled.div`
   display: flex;
   flex-direction: column;
-  width: 250px;
+  width: 270px;
   gap:16px;
   justify-content: space-between;
   @media(max-width:850px){
     display:grid;
     width:100%;
     justify-content:center;
+    text-align:center;
     grid-template-columns: repeat(auto-fill, 100px);
+    label{
+      font-size:14px;
+    }
   }
 `
 export const DivPrice = styled.div`

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { SearchDiv, StyledInput } from "./styles";
 import {RiSearchLine} from "react-icons/ri"
-import { IoIosArrowBack } from "react-icons/io"
+import { GrClose } from "react-icons/gr"
 import { useAuth } from "../../context/auth-context";
 import { getBrands } from "../../services/brand-service";
 import { colors } from "../../styles";
@@ -26,8 +26,8 @@ export default function SearchBar(){
   return(
     <SearchDiv>
       <StyledInput type="text" value={search} onChange={(e)=>setSearch(e.target.value)}/>
-      {search ==="" ? <RiSearchLine style={{color: colors.black.light, fontSize:"24"}}/> : 
-        <IoIosArrowBack style={{color: colors.black.light, fontSize:"24"}}/>
+      {(search ==="" || search === null) ? <RiSearchLine style={{color: colors.black.light, fontSize:"24"}}/> : 
+        <GrClose style={{color: colors.black.light, fontSize:"24"}} onClick={()=>setSearch("")}/>
       }
     </SearchDiv>
   )

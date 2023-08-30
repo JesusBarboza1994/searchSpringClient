@@ -31,19 +31,19 @@ export default function SpringDimensions({setShowModal}){
     <Wrapper>
     <InfoDiv>
         <DivInput>
-          <label>ALAMBRE</label>
+          <label>ALAMBRE (mm)</label>
         <StyledInput value={spring.spring.wire} readOnly />
       </DivInput>
       <DivInput>
-        <label>DIAM-EXT 1</label>
+        <label>DIAM-EXT 1 (mm)</label>
         <StyledInput  value={spring.spring.dext} readOnly />
       </DivInput>          
       <DivInput>
-        <label>DIAM-EXT 2</label>
+        <label>DIAM-EXT 2 (mm)</label>
         <StyledInput  value={spring.spring.dext2} readOnly />
       </DivInput>
       <DivInput>
-        <label>LONGITUD</label>
+        <label>LONGITUD (mm)</label>
         <StyledInput  value={spring.spring.length} readOnly />
       </DivInput>
       <DivInput>
@@ -51,11 +51,11 @@ export default function SpringDimensions({setShowModal}){
         <StyledInput  value={spring.spring.coils} readOnly />
       </DivInput>
       <DivInput>
-        <label>DIAM-INT 1</label>
+        <label>DIAM-INT 1 (mm)</label>
         <StyledInput  value={spring.spring.dint1} readOnly />
       </DivInput>
       <DivInput>
-        <label>DIAM-INT 2</label>
+        <label>DIAM-INT 2 (mm)</label>
         <StyledInput  value={spring.spring.dint2} readOnly />
       </DivInput>
     </InfoDiv>

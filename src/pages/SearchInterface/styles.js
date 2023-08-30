@@ -13,7 +13,7 @@ export const CodeContainer = styled.div`
   display:grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); 
   column-gap: 16px;
-  row-gap: 20px;
+  row-gap: 40px;
   width:100%;
   justify-items:center;
   padding: 24px 24px 24px 0px;
@@ -36,13 +36,13 @@ export const CodeContainer = styled.div`
     padding-right:12px;
     padding-left:12px;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
-    gap-row:20px;
+    row-gap:30px;
   }
   @media(max-width:500px){
     padding-right:12px;
     padding-left:12px;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); 
-    gap-row:20px;
+    row-gap:20px;
   }
 `
 export const Main = styled.div`

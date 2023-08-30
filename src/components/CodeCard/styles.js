@@ -8,6 +8,7 @@ export const Wrapper = styled.div`
   background:${colors.white};
   box-shadow: 0px 10px 40px rgba(41, 40, 40, 0.03);
   display: flex;
+  cursor: pointer;
   flex-direction: column;
   align-items: center;
   justify-content:space-between;
@@ -23,6 +24,7 @@ export const Wrapper = styled.div`
   }
   @media(max-width:900px){
     width:200px;
+    height: 300px;
   }
   @media(max-width:500px){
     width:150px;
@@ -32,6 +34,11 @@ export const Wrapper = styled.div`
 export const DivImg = styled.div`
   img{
     height:250px;
+  }
+  @media(max-width:900px){
+    img{
+      height: 200px;
+    }
   }
   @media(max-width:500px){
     img{

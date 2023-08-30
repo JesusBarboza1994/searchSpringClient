@@ -8,7 +8,7 @@ export const SearchDiv = styled.div`
   gap:8px;
   background:white;
   padding:2px;
-  width: 70%;
+  width: 40%;
   padding-right:10px;
 
   border-radius:16px;
