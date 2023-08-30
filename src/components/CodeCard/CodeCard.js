@@ -2,10 +2,20 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/auth-context";
 import { Wrapper, DivImg, DivCode, DivDescription } from "./styles";
 import notFound from "../../assets/NotFound.png"
+import { useEffect, useState } from "react";
+import loading from "../../assets/loading.gif"
 
 export default function CodeCard({code, car, id}){
   const { setCar} = useAuth()
   const nav = useNavigate()
+  const [isLoading, setIsLoading] = useState(true)
+  useEffect(() => {
+    const image = new Image();
+    image.src = `https://drive.google.com/uc?export=view&id=${code.img_url}`; // Reemplaza con la URL de tu imagen
+    image.onload = () => {
+      setIsLoading(false);
+    };
+  }, []);
   const handleClick = () =>{
     sessionStorage.removeItem("car")
     setCar(car)
@@ -22,7 +32,9 @@ export default function CodeCard({code, car, id}){
       </DivCode>
       <DivImg>
         {
-          code.img_url ? 
+          isLoading ? (
+            <img src={loading} alt="sin imagen"/>
+          ) : code.img_url ? 
           <img src={`https://drive.google.com/uc?export=view&id=${code.img_url}`} alt="sin imagen"/>
           :
           <img src={notFound} alt="sin imagen"/>

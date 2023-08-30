@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react"
 import { getCode } from "../../services/codes-service"
-import { DivCode, DivImg, DivModel, Wrapper, DivSpring, Modal, TableDiv, MirrorScreen, TableHeader, TableRow, Table, Close } from "./styles"
-import { useParams } from "react-router-dom";
+import { DivCode, DivImg, DivModel, Wrapper, DivSpring, Modal, TableDiv, MirrorScreen, TableHeader, TableRow, Table, Close, StyledMdArrowBack } from "./styles"
+import { useNavigate, useParams } from "react-router-dom";
 import { useAuth } from "../../context/auth-context";
 import SpringDimensions from "../../components/SpringDimensions/SpringDimensions";
 import notFound from "../../assets/NotFound.png"
+import {MdArrowBack} from "react-icons/md"
+import { colors } from "../../styles";
 
 export default function SpringView(){
   const { id } = useParams();
@@ -25,12 +27,12 @@ export default function SpringView(){
       "0037": "Planta Suspensión",
       "0025": "Circunvalación Almacén Ventas"
   }
-  
+  const nav = useNavigate()
   if(!spring || !car) return
   return(
     <>
     <Wrapper>
-    
+      <StyledMdArrowBack onClick={()=>nav("/codes")}/>
       <DivSpring>
         <DivCode>
           <p>

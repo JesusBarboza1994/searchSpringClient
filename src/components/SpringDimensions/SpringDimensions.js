@@ -2,25 +2,33 @@ import { BsWhatsapp } from "react-icons/bs";
 import { useAuth } from "../../context/auth-context";
 import { colors } from "../../styles";
 import { ButtonWsp, DivData, DivInput, DivPrice, DivStock, DivTotal, DivYunta, InfoDiv, StyledInput, Wrapper } from "./styles";
+import { useEffect, useState } from "react";
 
 
 
 export default function SpringDimensions({setShowModal}){
-
+  const [whatsappPhone , setWhatsappPhone ] = useState("998194292")
   const {spring} = useAuth();
-  if(!spring) return
+  useEffect(() => {
+    if(Object.keys(spring.spring.stock).length === 1 && spring.spring.stock["0010"]>=2){
+      setWhatsappPhone("998194289")
+    }
+  }, [spring])
   const handleWhatsapp = () => {
-  const springCode = encodeURIComponent(spring.code.osis_code);
-  const whatsappUrl = `https://api.whatsapp.com/send/?phone=51998195120&text=Hola.+Quiero+comprar+un+par+de+resortes+del+codigo+${springCode}&type=phone_number&app_absent=0`;
-
-  window.open(whatsappUrl, '_blank');
-}
+    const springCode = encodeURIComponent(spring.code.osis_code);
+    const whatsappUrl = `https://api.whatsapp.com/send/?phone=51${whatsappPhone}&text=Hola.+Quiero+comprar+un+par+de+resortes+del+codigo+${springCode}&type=phone_number&app_absent=0`;
+    
+    window.open(whatsappUrl, '_blank');
+  }
+  
   const isStock = ()=>{
     const stock = Object.values(spring.spring.stock).reduce((acc, val) =>acc = acc + val,0)
     return stock === 0 ? false : true
   }
- return (
-  <Wrapper>
+  
+  if(!spring) return
+  return (
+    <Wrapper>
     <InfoDiv>
         <DivInput>
           <label>ALAMBRE</label>
@@ -69,9 +77,9 @@ export default function SpringDimensions({setShowModal}){
       </DivPrice>
       <DivPrice>
         <DivTotal>
-          <h1>S/</h1>
+          <p>S/</p>
           <StyledInput value={spring.code.price} style={{fontSize:24}}/>
-          <h1>+ IGV</h1>
+          <p>+ incl. IGV</p>
         </DivTotal>
         <ButtonWsp onClick={handleWhatsapp} disabled={!isStock()}>
           <BsWhatsapp style={{color:colors.white ,fontSize:30}}/>

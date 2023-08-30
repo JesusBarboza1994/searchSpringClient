@@ -65,6 +65,10 @@ height:36px;
 gap:16px;
 justify-content: center;
 align-items: center;
+p{
+  color:${colors.white};
+  font-size:20px;
+}
 `
 
 export const ButtonWsp = styled.button`

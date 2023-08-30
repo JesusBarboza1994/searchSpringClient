@@ -10,7 +10,7 @@ export default function SearchBar(){
   const [search, setSearch] = useState(null)
   const { setBrands} = useAuth()
   let typingTimer; // Variable para el temporizador
-  const delayTime = 1000; // 1500 ms = 1.5 segundos
+  const delayTime = 500; // 1500 ms = 1.5 segundos
   useEffect(()=>{
     clearTimeout(typingTimer); // Reiniciar el temporizador cada vez que se presiona una tecla
     sessionStorage.removeItem("brands")

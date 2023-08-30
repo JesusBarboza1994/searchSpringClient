@@ -1,13 +1,15 @@
 import styled from "@emotion/styled";
 import { colors } from "../../styles";
+import { MdArrowBack } from "react-icons/md";
 
 export const Wrapper = styled.div`
   background: ${colors.black.medium};
   display:grid;
   grid-template-columns:405px 1fr;
-  padding: 60px 60px 60px 60px;
+  padding: 80px 60px 60px 60px;
   max-width:1200px;
   margin:auto;
+  position:relative;
   grid-gap: 100px;
   height:100%;
   @media(max-width:1200px){
@@ -22,7 +24,7 @@ export const Wrapper = styled.div`
     padding:40px;
   }
   @media(max-width: 550px){
-    padding-top:20px;
+    padding-top:60px;
   }
 `
 export const DivSpring = styled.div`
@@ -34,6 +36,18 @@ export const DivSpring = styled.div`
     p{
       font-size:16px;
     }
+  }
+`
+export const StyledMdArrowBack = styled(MdArrowBack)`
+  position:absolute;
+  color:${colors.white};
+  font-size:40px;
+  margin-bottom:8;
+  left:60px;
+  top:20px;
+  @media(max-width: 550px){
+    font-size:30px;
+    left:40px;
   }
 `
 export const DivCode = styled.div`
