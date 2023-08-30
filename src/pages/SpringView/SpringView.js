@@ -5,22 +5,22 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useAuth } from "../../context/auth-context";
 import SpringDimensions from "../../components/SpringDimensions/SpringDimensions";
 import notFound from "../../assets/NotFound.png"
-import {MdArrowBack} from "react-icons/md"
-import { colors } from "../../styles";
-
+import loading from "../../assets/loading2.gif"
 export default function SpringView(){
   const { id } = useParams();
   const {spring, setSpring, car} = useAuth();
   const [showModal, setShowModal] = useState(false)
+  const [isLoading, setIsLoading] = useState(true)
   useEffect(()=>{
     getCode(id)
     .then((response) =>{
+      setIsLoading(false)
       setSpring(response)
       sessionStorage.setItem("spring",JSON.stringify(response))
     })
     .catch(error => console.log(error))
   },[])
-
+ 
   const nameSuppliers = {
       "0010": "Raimondi Almacén Ventas",
       "0055": "Almacén Oficina Ventas",
@@ -31,6 +31,10 @@ export default function SpringView(){
   if(!spring || !car) return
   return(
     <>
+    {
+      isLoading ?
+      <img src={loading} alt="sin imagen"/>
+      :
     <Wrapper>
       <StyledMdArrowBack onClick={()=>nav("/codes")}/>
       <DivSpring>
@@ -58,6 +62,7 @@ export default function SpringView(){
      
       <SpringDimensions text={"text"} setShowModal={setShowModal}/>
     </Wrapper>
+    }
     <MirrorScreen showModal={showModal} onClick={()=>setShowModal(false)}>
     </MirrorScreen>
     <Modal showModal={showModal}>

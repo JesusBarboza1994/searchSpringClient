@@ -14,6 +14,7 @@ const Wrapper = styled.div`
   padding-top: 170px;
   @media(max-width:550px){
     padding-top:130px;
+    padding-right:0;
   }
 `
 const TitleContainer = styled.div`
@@ -45,22 +46,32 @@ const LogoContainer = styled.div`
   justify-content: space-between;
   img{
     height:90px;
+    // width:120px;
+  }
+  .brand-logo{
+    height:50px;
   }
   @media (max-width: 650px){
     padding-right:12px;
     img{
       height:80px;
+      // width:120px;
     }
   }
   @media (max-width: 550px){
     padding-right:0;
     img{
       height:60px;
+      // width:120px;
     }
   }
   @media (max-width: 450px){
+    
     img{
       height:50px;
+    }
+    .brand-logo{
+      height:30px;
     }
   }
 `
@@ -74,7 +85,7 @@ function App() {
           currentBrand ? 
           <LogoContainer>
             <img src={logo} alt="logo" onClick={()=>nav("/suspension")}/>
-            <img src={`https://drive.google.com/uc?export=view&id=${currentBrand}`} alt="sin imagen"/>
+            <img className="brand-logo" src={`https://drive.google.com/uc?export=view&id=${currentBrand}`} alt="sin imagen"/>
           </LogoContainer> :
           <LogoContainer>
             <img src={logo} alt="logo"/>

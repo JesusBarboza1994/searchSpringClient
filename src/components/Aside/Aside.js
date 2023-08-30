@@ -82,17 +82,6 @@ export default function Aside(){
       </>
     }
     {
-      !filters.version &&
-      <>
-        <FilterTitle>VERSION</FilterTitle>
-        <CheckBoxGroup>
-          {versions.map((version, index) => (
-            <CheckBox key={version + index} text={version} clave={"version"}/>
-          ))}
-        </CheckBoxGroup>
-      </>
-    }
-    {
       !filters.position &&
       <>
         <FilterTitle>POSICIÓN</FilterTitle>
@@ -103,6 +92,18 @@ export default function Aside(){
         </CheckBoxGroup>
       </>
     }
+    {
+      !filters.version &&
+      <>
+        <FilterTitle>VERSION</FilterTitle>
+        <CheckBoxGroup>
+          {versions.map((version, index) => (
+            <CheckBox key={version + index} text={version} clave={"version"}/>
+          ))}
+        </CheckBoxGroup>
+      </>
+    }
+    
     {
       (!filters.startYear && !filters.endYear) &&
       <>

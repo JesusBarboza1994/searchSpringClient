@@ -13,7 +13,7 @@ export default function Home(){
       <h1>BIENVENIDOS</h1>
       <ButtonContainer>
         <Button text={"Suspensión"} onClick={()=>nav("/suspension")}/>
-        <Button text={"Puertas"} url={"/puertas"}/>      
+        <Button text={"Portones"} onClick={()=>nav("/puertas")}/>      
       </ButtonContainer>
     </Wrapper>
   )
