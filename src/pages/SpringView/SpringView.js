@@ -5,7 +5,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useAuth } from "../../context/auth-context";
 import SpringDimensions from "../../components/SpringDimensions/SpringDimensions";
 import notFound from "../../assets/NotFound.png"
-import loading from "../../assets/loading4.gif"
+import loading from "../../assets/loading.gif"
 export default function SpringView(){
   const { id } = useParams();
   const {spring, setSpring, car} = useAuth();
