@@ -5,7 +5,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useAuth } from "../../context/auth-context";
 import SpringDimensions from "../../components/SpringDimensions/SpringDimensions";
 import notFound from "../../assets/NotFound.png"
-import loading from "../../assets/loading2.gif"
+import loading from "../../assets/loading4.gif"
 export default function SpringView(){
   const { id } = useParams();
   const {spring, setSpring, car} = useAuth();
@@ -31,10 +31,6 @@ export default function SpringView(){
   if(!spring || !car) return
   return(
     <>
-    {
-      isLoading ?
-      <img src={loading} alt="sin imagen"/>
-      :
     <Wrapper>
       <StyledMdArrowBack onClick={()=>nav("/codes")}/>
       <DivSpring>
@@ -45,6 +41,8 @@ export default function SpringView(){
           </DivCode>
         <DivImg>
           {
+            isLoading ?
+            <img src={loading} alt="sin imagen"/> :
             spring.code.img_url ? 
             <img src={`https://drive.google.com/uc?export=view&id=${spring.code.img_url}`} alt="sin imagen"/> 
             :
@@ -62,7 +60,6 @@ export default function SpringView(){
      
       <SpringDimensions text={"text"} setShowModal={setShowModal}/>
     </Wrapper>
-    }
     <MirrorScreen showModal={showModal} onClick={()=>setShowModal(false)}>
     </MirrorScreen>
     <Modal showModal={showModal}>
