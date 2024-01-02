@@ -24,8 +24,9 @@ export default function SpringView(){
   const nameSuppliers = {
       "0010": "Raimondi Almacén Ventas",
       "0055": "Almacén Oficina Ventas",
-      "0037": "Planta Suspensión",
-      "0025": "Circunvalación Almacén Ventas"
+      "0037": "Planta Suspensión - Tránsito",
+      "0025": "Circunvalación Almacén Ventas",
+      "0047": "Almacén Callao - Door to Door"
   }
   const nav = useNavigate()
   if(!spring || !car) return
